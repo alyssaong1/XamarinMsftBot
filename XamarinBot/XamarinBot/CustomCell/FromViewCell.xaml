@@ -25,9 +25,9 @@
     </Grid.RowDefinitions>
 
 
-    <Frame Grid.Row="0" OutlineColor="Transparent" HasShadow="False" Grid.Column="1" BackgroundColor="#03A9F4" VerticalOptions="FillAndExpand">
+    <Frame Grid.Row="0" OutlineColor="Transparent" HasShadow="False" Grid.Column="1" BackgroundColor="#03A9F4">
 
-      <Label TextColor="White" Text="{Binding MessageStr}" LineBreakMode="WordWrap" VerticalOptions="FillAndExpand"/>
+      <Label TextColor="White" Text="{Binding MessageStr}" />
 
     </Frame>
 
