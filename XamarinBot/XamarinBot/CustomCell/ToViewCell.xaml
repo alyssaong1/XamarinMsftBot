@@ -16,7 +16,7 @@
 
     <Grid.RowDefinitions>
 
-      <RowDefinition Height="*"></RowDefinition>
+      <RowDefinition Height="Auto"></RowDefinition>
 
       <RowDefinition Height="Auto"></RowDefinition>
 
@@ -24,9 +24,9 @@
 
     </Grid.RowDefinitions>
 
-    <Frame Grid.Row="0" OutlineColor="Transparent" HasShadow="False" Grid.Column="1" BackgroundColor="#F5F5F5">
+    <Frame Grid.Row="0" OutlineColor="Transparent" HasShadow="False" Grid.Column="1" BackgroundColor="#F5F5F5" VerticalOptions="FillAndExpand">
 
-      <Label TextColor="Black" HorizontalTextAlignment="End" Text="{Binding MessageStr}" />
+      <Label TextColor="Black" HorizontalTextAlignment="End" Text="{Binding MessageStr}" LineBreakMode="WordWrap" VerticalOptions="FillAndExpand" />
 
     </Frame>
 

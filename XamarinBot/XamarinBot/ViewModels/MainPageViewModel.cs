@@ -95,6 +95,7 @@ namespace XamarinBot.ViewModels
             //Handle the user's message here, make calls to your bot here
             if (msg.Equals("hello") || msg.Equals("hi"))
             {
+                // TODO: make it work for multiline
                 responseArr.Add("Hey there! How can I help you?");
             }
             else
