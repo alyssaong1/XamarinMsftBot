@@ -16,6 +16,8 @@ namespace XamarinBot.ViewModels
 
         public ListView messagesListView;
 
+        public Entry messagesEntry;
+
         private DirectLineManager directLineManager;
 
         public ObservableCollection<MessageViewModel> Messages
@@ -87,6 +89,9 @@ namespace XamarinBot.ViewModels
             }
             // Scroll as messages come
             ShowLatestMessage();
+            // Reenable the textbox once response is received from the bot
+            messagesEntry.IsEnabled = true;
+            messagesEntry.Focus();
         }
 
         private async Task<List<string>> HandleUserMessage(string msg)
