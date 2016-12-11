@@ -85,7 +85,7 @@ namespace XamarinBot.ViewModels
             OutGoingText = null;
             for (var i = 0; i < responseArr.Count; i++)
             {
-                Messages.Add(new MessageViewModel { MessageStr = responseArr[i], IsIncoming = true, DateTime = DateTime.Now });
+                Messages.Add(responseArr[i]);
             }
             // Scroll as messages come
             ShowLatestMessage();
@@ -94,14 +94,14 @@ namespace XamarinBot.ViewModels
             messagesEntry.Focus();
         }
 
-        private async Task<List<string>> HandleUserMessage(string msg)
+        private async Task<List<MessageViewModel>> HandleUserMessage(string msg)
         {
-            List<string> responseArr = new List<string>();
+            List<MessageViewModel> responseArr = new List<MessageViewModel>();
             //Handle the user's message here, make calls to your bot here
             if (msg.Equals("hello") || msg.Equals("hi"))
             {
                 // TODO: make it work for multiline
-                responseArr.Add("Hey there! How can I help you?");
+                responseArr.Add(new MessageViewModel { MessageStr = "Hey there! How can I help you?", IsIncoming = true, DateTime = DateTime.Now });
             }
             else
             {

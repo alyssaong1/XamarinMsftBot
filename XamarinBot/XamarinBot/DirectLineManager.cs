@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using XamarinBot.ViewModels;
 
 namespace XamarinBot
 {
@@ -20,7 +21,7 @@ namespace XamarinBot
             client = new DirectLineClient(BOTSECRET);
         }
 
-        public async Task<List<string>> GetBotResponse(string userMsg)
+        public async Task<List<MessageViewModel>> GetBotResponse(string userMsg)
         {
             currConvoId = CrossSettings.Current.GetValueOrDefault("convo_key", "");
             watermark = CrossSettings.Current.GetValueOrDefault("watermark_key", "");
@@ -43,12 +44,21 @@ namespace XamarinBot
             // Update watermark to the most recent
             CrossSettings.Current.AddOrUpdateValue("watermark_key", response.Watermark);
 
-            var responseArr = new List<string>();
+            var responseArr = new List<MessageViewModel>();
 
             // TODO: Account for images and attachments
             for (var i = 1; i < response.Activities.Count; i++)
             {
-                responseArr.Add(response.Activities[i].Text);
+                if (response.Activities[i].Attachments.Count > 0)
+                {
+                    // Assuming only one image will come in
+                    responseArr.Add(new MessageViewModel { IsIncoming = true, DateTime = DateTime.Now, AttachementUrl = response.Activities[i].Attachments[0].ContentUrl });
+
+                } else
+                {
+                    responseArr.Add(new MessageViewModel { MessageStr = response.Activities[i].Text, IsIncoming = true, DateTime = DateTime.Now });
+
+                }
             }
             return responseArr;
         }
