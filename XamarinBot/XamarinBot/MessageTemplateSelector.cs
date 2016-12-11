@@ -25,7 +25,13 @@ namespace XamarinBot
 
         protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
         {
-            return ((MessageViewModel)item).IsIncoming ? ToTemplate : FromTemplate;
+            try
+            {
+                return ((MessageViewModel)item).IsIncoming ? ToTemplate : FromTemplate;
+            } catch (Exception)
+            {
+                return null;
+            }
         }
 
 

@@ -34,7 +34,7 @@ namespace XamarinBot
             IMessageActivity message = new Activity()
             {
                 Text = userMsg,
-                From = new ChannelAccount { Id = "aly" },
+                From = new ChannelAccount { Id = "user" },
                 Type = "message"
             };
             await client.Conversations.PostActivityAsync(currConvoId, message as Activity);
