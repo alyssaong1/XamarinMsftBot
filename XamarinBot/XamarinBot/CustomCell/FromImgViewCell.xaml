@@ -31,7 +31,7 @@
 
     </Frame>
 
-    <Label FontSize="Micro" Grid.Row="1" Grid.Column="1" Text="{Binding DateTime}" TextColor="Gray"></Label>
+    <Label FontSize="Micro" Grid.Row="1" Grid.Column="1" Text="{Binding DateTime}" TextColor="Gray" HorizontalOptions="LayoutOptions.End"></Label>
 
   </Grid>
 

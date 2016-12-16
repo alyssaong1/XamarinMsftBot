@@ -30,7 +30,7 @@
 
     </Frame>
 
-    <Label Grid.Row="1" FontSize="Micro" Grid.Column="1" HorizontalTextAlignment="End"  Text="{Binding DateTime, StringFormat='{0:MM/dd/yyyy hh:mm tt}'}" TextColor="Gray"></Label>
+    <Label Grid.Row="1" FontSize="Micro" Grid.Column="1" Text="{Binding DateTime, StringFormat='{0:MM/dd/yyyy hh:mm tt}'}" TextColor="Gray"></Label>
 
 
 
