@@ -76,6 +76,8 @@ namespace XamarinBot
             await DisplayAlert("File Location", file.Path, "OK");
 
             // Handle the photo taken here
+            mainPageVM.ProcessPhotoMessage(file.Path);
+
         }
 
         private async void GetPhotoFromLibrary()
@@ -93,9 +95,8 @@ namespace XamarinBot
                 return;
 
             await DisplayAlert("File Location", file.Path, "OK");
-
+            mainPageVM.ProcessPhotoMessage(file.Path);
             
-
         }
 
     }

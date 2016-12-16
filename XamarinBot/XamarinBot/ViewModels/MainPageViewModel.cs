@@ -75,6 +75,12 @@ namespace XamarinBot.ViewModels
             directLineManager = new DirectLineManager();
         }
 
+        public void ProcessPhotoMessage(string photourl)
+        {
+            Messages.Add(new MessageViewModel { IsIncoming = false, DateTime = DateTime.Now, AttachementUrl = photourl });
+            ShowLatestMessage();
+        }
+
         public async void ProcessMessage()
         {
             Messages.Add(new MessageViewModel { MessageStr = OutGoingText, IsIncoming = false, DateTime = DateTime.Now });
