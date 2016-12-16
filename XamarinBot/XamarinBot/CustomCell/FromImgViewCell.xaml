@@ -27,7 +27,7 @@
 
     <Frame Grid.Row="0" OutlineColor="Transparent" HasShadow="False" Grid.Column="1" BackgroundColor="#03A9F4">
 
-      <Image Source="{Binding AttachementUrl}" WidthRequest="200" HorizontalOptions="LayoutOptions.Start"/>
+      <Image Source="{Binding AttachementUrl}" WidthRequest="200" HorizontalOptions="LayoutOptions.End"/>
 
     </Frame>
 

@@ -106,8 +106,10 @@ namespace XamarinBot.ViewModels
             //Handle the user's message here, make calls to your bot here
             if (msg.Equals("hello") || msg.Equals("hi"))
             {
-                // TODO: make it work for multiline
                 responseArr.Add(new MessageViewModel { MessageStr = "Hey there! How can I help you?", IsIncoming = true, DateTime = DateTime.Now });
+                // Reenable the textbox once response is received from the bot
+                messagesEntry.IsEnabled = true;
+                messagesEntry.Focus();
             }
             else
             {

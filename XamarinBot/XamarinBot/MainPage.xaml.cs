@@ -29,9 +29,9 @@ namespace XamarinBot
         }
         private void MsgEntry_Send(object sender, EventArgs e)
         {
+            MsgEntry.IsEnabled = false;
             mainPageVM.ProcessMessage();
             MsgEntry.Text = "";
-            MsgEntry.IsEnabled = false;
         }
         private void OnSendButtonClicked(object sender, EventArgs e)
         {

@@ -27,7 +27,7 @@
 
     <Frame Grid.Row="0" OutlineColor="Transparent" HasShadow="False" Grid.Column="1" BackgroundColor="#03A9F4">
 
-      <Label TextColor="White" Text="{Binding MessageStr}" />
+      <Label TextColor="White" HorizontalTextAlignment="End" Text="{Binding MessageStr}" />
 
     </Frame>
 
