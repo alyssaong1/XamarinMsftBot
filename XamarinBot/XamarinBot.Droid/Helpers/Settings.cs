@@ -1,44 +1,51 @@
-
-// Helpers/Settings.cs This file was automatically added when you installed the Settings Plugin. If you are not using a PCL then comment this file back in to use it.
+using Microsoft.Bot.Connector.DirectLine;
 using Plugin.Settings;
 using Plugin.Settings.Abstractions;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace XamarinBot.Droid.Helpers
+namespace XamarinBot
 {
-  /// <summary>
-  /// This is the Settings static class that can be used in your Core solution or in any
-  /// of your client applications. All settings are laid out the same exact way with getters
-  /// and setters. 
-  /// </summary>
-  public static class Settings
-  {
-    private static ISettings AppSettings
+    public static class Settings
     {
-      get
-      {
-        return CrossSettings.Current;
-      }
+        private static ISettings AppSettings
+        {
+            get
+            {
+                return CrossSettings.Current;
+            }
+        }
+
+        private const string ConvoKey = "convo_key";
+        private static readonly Conversation ConvoDefault = null;
+
+        private const string WatermarkKey = "watermark_key";
+        private static readonly string WatermarkDefault = string.Empty;
+
+        public static object Convo
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault<object>(ConvoKey, ConvoDefault);
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue<object>(ConvoKey, value);
+            }
+        }
+
+        public static string Watermark
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault<string>(WatermarkKey, WatermarkDefault);
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue<string>(WatermarkKey, value);
+            }
+        }
+
     }
-
-    #region Setting Constants
-
-    private const string SettingsKey = "settings_key";
-    private static readonly string SettingsDefault = string.Empty;
-
-    #endregion
-
-
-    public static string GeneralSettings
-    {
-      get
-      {
-        return AppSettings.GetValueOrDefault<string>(SettingsKey, SettingsDefault);
-      }
-      set
-      {
-        AppSettings.AddOrUpdateValue<string>(SettingsKey, value);
-      }
-    }
-
-  }
 }

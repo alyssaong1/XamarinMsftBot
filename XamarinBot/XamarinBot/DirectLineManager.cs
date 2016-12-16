@@ -10,6 +10,7 @@ namespace XamarinBot
 {
     class DirectLineManager
     {
+        // Replace this with your own
         private static string BOTSECRET = "TRCuflYOylQ.cwA.JQg.Pm3pHC3azJ0gFCHJ3A_omy1dZ86-O6vbE7Htm4R6Gno";
         private DirectLineClient client;
         private string currConvoId;
@@ -32,7 +33,7 @@ namespace XamarinBot
                 CrossSettings.Current.AddOrUpdateValue("convo_key", currConvoId);
             }
 
-            IMessageActivity message = new Activity()
+        IMessageActivity message = new Activity()
             {
                 Text = userMsg,
                 From = new ChannelAccount { Id = "user" },
